@@ -51,17 +51,18 @@ not in(select aracno from Satislar)
 select AVG(Satislar.satisFiyati) from Satislar 
 JOIN ARACLAR on Satislar.aracNo = ARACLAR.aracno
 
+--8.	Alýmý ve satýþý yapýlan tüm araçlarýn marka, model ve alým-satýþ sayýsýný listelemek için gerekli SQL ifadesiniz yazýnýz.
 SELECT *FROM ARACLAR WHERE aracno
 IN (select aracno from alislar where aracno IN (select aracno from Satislar))
 
 
-
+--9.	20000’den fazla tutara satýlan araçlarý kimlerin hangi aracý aldýðýný bulmak için gerekli SQL ifadesini yazýnýz
 select * from Satislar 
 join ARACLAR on ARACLAR.aracno = Satislar.aracNo
 join MUSTERI on MUSTERI.mNo = Satislar.mNo
 where satisFiyati > 20000
 
-
+--10.	Tokatta bulunan müþterilere satýþý yapýlan araçlarý listelemek için gerekli SQL ifadesini yazýnýz.
 select * from Satislar
 join MUSTERI on MUSTERI.mNo = Satislar.mNo
 join ARACLAR on ARACLAR.aracno = Satislar.aracNo
